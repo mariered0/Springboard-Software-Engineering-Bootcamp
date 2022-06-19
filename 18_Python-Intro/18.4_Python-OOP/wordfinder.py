@@ -1,6 +1,5 @@
 """Word Finder: finds random words from a dictionary."""
 import random
-from readline import read_init_file
 
 class WordFinder:
     """
@@ -58,7 +57,7 @@ class SpecialWordFinder(WordFinder):
         """Reads the file same as the WordFinder's read_file method, but ignores blank lines and the lines start with the # symbol."""
 
         for line in self.word_list:
-            if not line.startswith('#') and not not line:
+            if not line.startswith('#') and line:
                 self.filtered.append(line.strip('\n'))
         return print(f"{len(self.filtered)} words read")
 
