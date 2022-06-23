@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Story{% endblock %}
+
+{% block content %}
+<h1>Your Story - {{title}}</h1>
+
+
+    {% if text %}
+    <p>{{text}}</p>
+    
+    {% endif %}
+</form>
+
+
+{% endblock %}
