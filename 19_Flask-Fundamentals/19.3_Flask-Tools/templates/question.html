@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}{{surveys.satisfaction.title}}{% endblock %}
+
+{% block content %}
+
+<h2>{{surveys.satisfaction.title}}</h2>
+<p>{{surveys.satisfaction.instructions}}</p>
+<form action="/questions/1">
+    <label for="question0">{{surveys.satisfaction.questions}}</label>
+    <input type="radio" name="question0">
+</form>
+{% endblock %}
