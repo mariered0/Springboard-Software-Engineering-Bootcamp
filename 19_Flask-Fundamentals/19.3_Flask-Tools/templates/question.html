@@ -16,7 +16,6 @@
 {% endif %}
 {% endwith %}
 
-<p>{{survey.instructions}}</p>
 
 <form action="/answer" method="POST">
     <label for="question{{q_num}}">{{survey.questions[q_num].question}}</label>

@@ -6,7 +6,7 @@
 
 <h2>{{survey.title}}</h2>
 <p>{{survey.instructions}}</p>
-<form action="/questions/0">
-    <button id="survey_start_btn">Start</button>
+<form action="/start_survey" method="POST">
+    <button id="survey_start_btn">Start Survey</button>
 </form>
 {% endblock %}
