@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 
-{% block title %}{{surveys.satisfaction.title}}{% endblock %}
+{% block title %}{{survey.title}}{% endblock %}
 
 {% block content %}
 
-<h2>{{surveys.satisfaction.title}}</h2>
-<p>{{surveys.satisfaction.instructions}}</p>
-<form action="/questions/1">
-    <label for="question0">{{surveys.satisfaction.questions}}</label>
-    <input type="radio" name="question0">
+<h2>{{survey.title}}</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+<section class="messages">
+{% for category,msg in messages %}
+<p>{{msg}}</p>
+{% endfor %}
+</section>
+{% endif %}
+{% endwith %}
+
+<p>{{survey.instructions}}</p>
+
+<form action="/answer" method="POST">
+    <label for="question{{q_num}}">{{survey.questions[q_num].question}}</label>
+    <br>
+    {% for choice in survey.questions[q_num].choices %}
+    <input type="radio" name="answer" value="{{choice}}">
+    <label for="{{choice}}">{{choice}}</label>
+    {% endfor %}
+    <br>
+    <button id="next-btn">Next</button>
 </form>
 {% endblock %}
